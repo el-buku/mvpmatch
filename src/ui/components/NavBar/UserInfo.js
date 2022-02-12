@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Box, Text } from "../base";
+import { Box, Text } from "ui/base";
 
 const Initials = styled(Box)`
   border-radius: 5px;
@@ -17,7 +17,7 @@ export const UserInfo = ({ user }) => {
           {user.lastName?.charAt(0)}
         </Text>
       </Box>
-      <Box mr={5}>
+      <Box mr={[3, 5]}>
         <Text
           textAlign="align.center"
           color="primary"

@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import theme, { GlobalStyle, MenuWrapper } from "./ui";
+import theme, { GlobalStyle, MenuWrapper } from "ui";
 // import { Reports } from "./routes";
 
 const Reports = () => <></>;
