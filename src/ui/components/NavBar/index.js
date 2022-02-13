@@ -2,7 +2,8 @@ import React from "react";
 import { ReactComponent as AppLogo } from "assets/icons/b-logo.svg";
 import { ReactComponent as SideBarToggle } from "assets/icons/sidebar-toggle.svg";
 import { UserInfo } from "./UserInfo";
-import { Box } from "ui/base";
+import { Box, Flex } from "ui/base";
+import { IconButton } from "../../base";
 
 const NavBar = ({ toggleSideBar }) => {
   const user = {
@@ -12,15 +13,23 @@ const NavBar = ({ toggleSideBar }) => {
     email: "john.doe@email.com",
   };
   return (
-    <Box height={4}>
-      <Box mx={4} ml={[3, 4]} height={3}>
-        <AppLogo />
-      </Box>
-      <Box onClick={toggleSideBar}>
-        <SideBarToggle />
-      </Box>
+    <Flex
+      height={4}
+      borderBottomWidth={"2px"}
+      borderBottomStyle={"solid"}
+      borderBottomColor="lightGray"
+      position="sticky"
+      top={0}
+      width="100%"
+      bg="white"
+      zIndex={4}
+    >
+      <IconButton mx={5} ml={[3, 5]} height={3} icon={<AppLogo />} />
+
+      <IconButton onClick={toggleSideBar} icon={<SideBarToggle />} />
+
       <UserInfo user={user} />
-    </Box>
+    </Flex>
   );
 };
 

@@ -1,21 +1,57 @@
 import React, { useState } from "react";
-import { useTheme } from "styled-components";
+import styled, { useTheme, css, keyframes } from "styled-components";
+import { Box } from "..";
 import NavBar from "./NavBar";
 import SideBar from "./SideBar";
 
+const contentMargin = {
+  closed: 6,
+  open: 7,
+};
+
+const contentAnimation = (props) =>
+  keyframes({
+    from: {
+      marginLeft: props.theme.space[contentMargin.closed],
+    },
+    to: {
+      marginLeft: props.theme.space[contentMargin.open],
+    },
+  });
+
+const ContentContainer = styled(Box)`
+  animation: ${(props) =>
+    props.sideBarOpen
+      ? css`
+          ${contentAnimation(props)} 0.4s ease-out
+        `
+      : ""};
+`;
+
 const MenuWrapper = ({ children }) => {
   const theme = useTheme();
-  //sidebar should be open by default on desktop, closed on mobile
-  const [sidebarState, setSidebarState] = useState(
-    window.outerWidth / 16 > theme.breakpoints.medium
+  //should be open by default on desktop, closed on mobile
+  const [sideBarOpen, setSidebarOpen] = useState(
+    window.outerWidth > theme.breakpointsToPx("medium")
   );
-  const toggleSideBar = () => setSidebarState(!sidebarState);
+  const toggleSideBar = () => setSidebarOpen(!sideBarOpen);
+
   return (
-    <>
+    <Box position="relative">
       <NavBar toggleSideBar={toggleSideBar} />
-      <SideBar />
-      {children}
-    </>
+      {sideBarOpen && <SideBar />}
+      <ContentContainer
+        position="absolute"
+        sideBarOpen={sideBarOpen}
+        ml={{
+          _: 4,
+          small: sideBarOpen ? contentMargin.open : contentMargin.closed,
+        }}
+        pt={4}
+      >
+        {children}
+      </ContentContainer>
+    </Box>
   );
 };
 
