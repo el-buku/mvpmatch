@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import theme, { GlobalStyle, MenuWrapper, Box } from "ui";
+import theme, { GlobalStyle, Box } from "ui/base";
+import { Navigation } from "ui/components";
 import { DataProvider } from "./context";
 // import { Reports } from "./routes";
 
@@ -13,7 +14,7 @@ function App() {
       <DataProvider>
         <GlobalStyle />
         <Router>
-          <MenuWrapper>
+          <Navigation>
             <Box height={4}>TEXT</Box>
             <Box height={4}>TEXT</Box>
             <Box height={4}>TEXT</Box>
@@ -36,7 +37,7 @@ function App() {
             <Reports />
           </Route>
         </Routes> */}
-          </MenuWrapper>
+          </Navigation>
         </Router>
       </DataProvider>
     </ThemeProvider>

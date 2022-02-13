@@ -1,9 +1,8 @@
 import React from "react";
 import { ReactComponent as AppLogo } from "assets/icons/b-logo.svg";
 import { ReactComponent as SideBarToggle } from "assets/icons/sidebar-toggle.svg";
-import { UserInfo } from "./UserInfo";
-import { Box, Flex } from "ui/base";
-import { IconButton } from "../../base";
+import { UserInfo } from "ui/blocks";
+import { IconButton, Flex } from "ui/base";
 
 const NavBar = ({ toggleSideBar }) => {
   return (

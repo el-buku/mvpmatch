@@ -6,8 +6,7 @@ import { ReactComponent as Icon2 } from "assets/icons/sidebar-icons/sidebar-2.sv
 import { ReactComponent as Icon3 } from "assets/icons/sidebar-icons/sidebar-3.svg";
 import { ReactComponent as Icon4 } from "assets/icons/sidebar-icons/sidebar-4.svg";
 import { ReactComponent as Icon5 } from "assets/icons/sidebar-icons/sidebar-5.svg";
-import { IconButton } from "ui/base";
-import { Spacer } from "../base";
+import { IconButton, Spacer } from "ui/base";
 
 const sidebarAnimation = keyframes({
   from: {

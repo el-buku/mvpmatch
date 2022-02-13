@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import styled, { useTheme, css, keyframes } from "styled-components";
-import { Box } from "..";
-import NavBar from "./NavBar";
-import SideBar from "./SideBar";
+import { Box } from "ui/base";
+import { NavBar, SideBar } from ".";
 
 const contentMargin = {
   closed: 6,

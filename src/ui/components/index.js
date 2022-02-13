@@ -1,4 +1,2 @@
-import NavBar from "./NavBar";
-import SideBar from "./SideBar";
-import MenuWrapper from "./MenuWrapper";
-export { NavBar, SideBar, MenuWrapper };
+import Navigation from "./Nav";
+export { Navigation };
