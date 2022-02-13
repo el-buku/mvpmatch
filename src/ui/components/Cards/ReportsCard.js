@@ -13,7 +13,7 @@ const ReportsCard = () => {
           elements={[
             {
               type: "values",
-              itemType: "projects",
+              placeholder: "Project...",
               selected: 1,
               options: [
                 { id: 1, name: "abcc" },
@@ -23,7 +23,27 @@ const ReportsCard = () => {
             },
             {
               type: "values",
-              itemType: "gateways",
+              placeholder: "Gateway...",
+              selected: 2,
+              options: [
+                { id: 1, name: "abcc" },
+                { id: 2, name: "ccab" },
+                { id: 3, name: "ccac" },
+              ],
+            },
+            {
+              type: "values",
+              placeholder: "Gateway...",
+              selected: 2,
+              options: [
+                { id: 1, name: "abcc" },
+                { id: 2, name: "ccab" },
+                { id: 3, name: "ccac" },
+              ],
+            },
+            {
+              type: "values",
+              placeholder: "Gateway...",
               selected: 2,
               options: [
                 { id: 1, name: "abcc" },

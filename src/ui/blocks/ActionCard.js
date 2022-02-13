@@ -2,8 +2,9 @@ import React from "react";
 import { Flex, Box, Text } from "ui/base";
 
 export const ActionCard = ({ title, subtitle, actions, ...containerProps }) => {
+  console.log(containerProps.flexDirection);
   return (
-    <Flex {...containerProps}>
+    <Flex {...containerProps} width="full">
       <Box>
         <Text color="textPrimary" fontSize={2} fontWeight="bold">
           {title}
@@ -12,7 +13,9 @@ export const ActionCard = ({ title, subtitle, actions, ...containerProps }) => {
           {subtitle}
         </Text>
       </Box>
-      <Box>{actions}</Box>
+      <Flex justifyContent={"space-between"} width="full">
+        {actions}
+      </Flex>
     </Flex>
   );
 };

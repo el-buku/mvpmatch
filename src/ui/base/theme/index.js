@@ -28,6 +28,7 @@ const theme = {
 };
 
 theme.sizes.auto = "auto";
+theme.sizes.full = "100%";
 theme.space.auto = "auto";
 
 theme.breakpoints.small = theme.breakpoints[0];

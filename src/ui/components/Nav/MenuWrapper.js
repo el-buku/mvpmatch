@@ -8,24 +8,9 @@ const contentMargin = {
   open: 7,
 };
 const navBarTopPadding = 4;
-const contentAnimation = (props) =>
-  keyframes({
-    from: {
-      marginLeft: props.theme.space[contentMargin.closed],
-    },
-    to: {
-      marginLeft: props.theme.space[contentMargin.open],
-    },
-  });
 
 const ContentContainer = styled(Flex)`
   min-height: calc(100vh - ${(props) => props.theme.sizes[navBarTopPadding]}px);
-  animation: ${(props) =>
-    props.sideBarOpen
-      ? css`
-          ${contentAnimation(props)} 0.4s ease-out
-        `
-      : ""};
 `;
 
 const MenuWrapper = ({ children }) => {
@@ -35,7 +20,19 @@ const MenuWrapper = ({ children }) => {
     window.outerWidth > theme.breakpointsToPx("medium")
   );
   const toggleSideBar = () => setSidebarOpen(!sideBarOpen);
-
+  const width = React.useMemo(
+    () => ({
+      _: `calc(100vw - ${(
+        (sideBarOpen && theme.space[contentMargin.open]) ||
+        theme.space[4]
+      ).toString()}px);`,
+      small: `calc(100vw - ${(
+        (sideBarOpen && theme.space[contentMargin.open]) ||
+        theme.space[contentMargin.closed]
+      ).toString()}px);`,
+    }),
+    [sideBarOpen, theme]
+  );
   return (
     <Box position="relative">
       <NavBar toggleSideBar={toggleSideBar} />
@@ -44,6 +41,7 @@ const MenuWrapper = ({ children }) => {
         position="absolute"
         sideBarOpen={sideBarOpen}
         flexDirection="column"
+        width={width}
         ml={{
           _: sideBarOpen ? contentMargin.open : 4,
           small: sideBarOpen ? contentMargin.open : contentMargin.closed,

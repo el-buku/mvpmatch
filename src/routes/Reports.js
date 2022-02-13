@@ -4,9 +4,7 @@ import { Cards } from "ui/components";
 const Reports = () => {
   return (
     <>
-      <Box>
-        <Cards.Reports />
-      </Box>
+      <Cards.Reports />
     </>
   );
 };

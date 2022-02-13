@@ -10,7 +10,7 @@ const useQueryHook = (query) => {
       query()
         .then((response) => setData(response.data))
         .catch((e) => {
-          console.err(e);
+          console.error(e);
           setError(true);
         })
         .finally(() => setLoading(false)),

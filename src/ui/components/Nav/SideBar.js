@@ -8,7 +8,7 @@ import { ReactComponent as Icon4 } from "assets/icons/sidebar-icons/sidebar-4.sv
 import { ReactComponent as Icon5 } from "assets/icons/sidebar-icons/sidebar-5.svg";
 import { Button, Spacer } from "ui/base";
 
-const sidebarAnimation = keyframes({
+const openAnimation = keyframes({
   from: {
     left: "-20%",
   },
@@ -17,7 +17,7 @@ const sidebarAnimation = keyframes({
   },
 });
 const SidebarFlex = styled(Flex)`
-  animation: ${sidebarAnimation} 0.4s ease-out;
+  animation: ${openAnimation} 0.4s ease-out;
 `;
 
 const SideBar = () => {

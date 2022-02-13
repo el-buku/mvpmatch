@@ -1,7 +1,6 @@
-import PropTypes, { number, string, oneOf } from "prop-types";
 import React from "react";
 
-import { Box } from "ui/base";
+import { Box, Flex } from "ui/base";
 import { Dropdowns } from "ui/blocks";
 
 const InputGroup = ({ elements }) => {
@@ -11,12 +10,10 @@ const InputGroup = ({ elements }) => {
         const type = element.type;
         console.log(element);
         return (
-          (type === "values" && (
-            <Dropdowns.Values key={`${element.id}${index}`} {...element} />
-          )) ||
-          (type === "date" && (
-            <Dropdowns.Date key={`${element.id}${index}`} {...element} />
-          ))
+          <Box p={1} key={`${index}`} position="relative">
+            {(type === "values" && <Dropdowns.Values {...element} />) ||
+              (type === "date" && <Dropdowns.Date {...element} />)}
+          </Box>
         );
       })}
     </>
@@ -26,7 +23,7 @@ const InputGroup = ({ elements }) => {
 // InputGroup.propTypes = PropTypes.object({
 //   elements: {
 //     type: oneOf(["values", "date", "submit"]),
-//     itemType: string,
+//     placeholder: string,
 //     selected: number,
 //     options: PropTypes.oneOfType([
 //       PropTypes.arrayOf(PropTypes.object({ id: number, name: string })),
