@@ -4,5 +4,6 @@ import { Text } from "./Text";
 import { Flex } from "./Flex";
 import { Spacer } from "./Spacer";
 import { IconButton } from "./IconButton";
-export { Box, GlobalStyle, Text, Flex, Spacer, IconButton };
+import { Spinner } from "./Spinner";
+export { Box, GlobalStyle, Text, Flex, Spacer, IconButton, Spinner };
 export default theme;

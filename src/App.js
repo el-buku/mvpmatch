@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import theme, { GlobalStyle, MenuWrapper, Box } from "ui";
+import { DataProvider } from "./context";
 // import { Reports } from "./routes";
 
 const Reports = () => <></>;
@@ -9,24 +10,25 @@ const Reports = () => <></>;
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Router>
-        <MenuWrapper>
-          <Box height={4}>TEXT</Box>
-          <Box height={4}>TEXT</Box>
-          <Box height={4}>TEXT</Box>
-          <Box height={4}>TEXT</Box>
-          <Box height={4}>TEXT</Box>
-          <Box height={4}>TEXT</Box>
-          <Box height={4}>TEXT</Box>
-          <Box height={4}>TEXT</Box>
-          <Box height={4}>TEXT</Box>
-          <Box height={4}>TEXT</Box>
-          <Box height={4}>TEXT</Box>
-          <Box height={4}>TEXT</Box>
-          <Box height={4}>TEXT</Box>
-          <Box height={4}>TEXT</Box>
-          {/* <Routes>
+      <DataProvider>
+        <GlobalStyle />
+        <Router>
+          <MenuWrapper>
+            <Box height={4}>TEXT</Box>
+            <Box height={4}>TEXT</Box>
+            <Box height={4}>TEXT</Box>
+            <Box height={4}>TEXT</Box>
+            <Box height={4}>TEXT</Box>
+            <Box height={4}>TEXT</Box>
+            <Box height={4}>TEXT</Box>
+            <Box height={4}>TEXT</Box>
+            <Box height={4}>TEXT</Box>
+            <Box height={4}>TEXT</Box>
+            <Box height={4}>TEXT</Box>
+            <Box height={4}>TEXT</Box>
+            <Box height={4}>TEXT</Box>
+            <Box height={4}>TEXT</Box>
+            {/* <Routes>
           <Route path="/">
             <Reports />
           </Route>
@@ -34,8 +36,9 @@ function App() {
             <Reports />
           </Route>
         </Routes> */}
-        </MenuWrapper>
-      </Router>
+          </MenuWrapper>
+        </Router>
+      </DataProvider>
     </ThemeProvider>
   );
 }

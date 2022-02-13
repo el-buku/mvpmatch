@@ -6,12 +6,6 @@ import { Box, Flex } from "ui/base";
 import { IconButton } from "../../base";
 
 const NavBar = ({ toggleSideBar }) => {
-  const user = {
-    userId: "rahej",
-    firstName: "John",
-    lastName: "Doe",
-    email: "john.doe@email.com",
-  };
   return (
     <Flex
       height={4}
@@ -34,7 +28,7 @@ const NavBar = ({ toggleSideBar }) => {
 
       <IconButton onClick={toggleSideBar} icon={<SideBarToggle />} />
 
-      <UserInfo user={user} />
+      <UserInfo />
     </Flex>
   );
 };
