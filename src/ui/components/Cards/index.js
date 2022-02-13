@@ -1,3 +1,3 @@
-import ReportsCard from "./ReportsCard";
+import Reports from "./ReportsCard";
 
-export { ReportsCard };
+export { Reports };

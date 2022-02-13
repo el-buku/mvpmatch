@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Flex } from "./Flex";
+import { Flex } from "ui/base";
 
 const IconBox = styled(Flex)`
   cursor: pointer;

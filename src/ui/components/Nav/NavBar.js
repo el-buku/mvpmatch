@@ -2,7 +2,7 @@ import React from "react";
 import { ReactComponent as AppLogo } from "assets/icons/b-logo.svg";
 import { ReactComponent as SideBarToggle } from "assets/icons/sidebar-toggle.svg";
 import { UserInfo } from "ui/blocks";
-import { IconButton, Flex } from "ui/base";
+import { Button, Flex } from "ui/base";
 import { useData } from "context";
 
 const NavBar = ({ toggleSideBar }) => {
@@ -22,7 +22,7 @@ const NavBar = ({ toggleSideBar }) => {
       bg="white"
       zIndex={4}
     >
-      <IconButton
+      <Button.Icon
         disabledHover
         mx={5}
         ml={[3, 5]}
@@ -30,7 +30,7 @@ const NavBar = ({ toggleSideBar }) => {
         icon={<AppLogo />}
       />
 
-      <IconButton onClick={toggleSideBar} icon={<SideBarToggle />} />
+      <Button.Icon onClick={toggleSideBar} icon={<SideBarToggle />} />
 
       <UserInfo {...{ user, loading, error }} />
     </Flex>

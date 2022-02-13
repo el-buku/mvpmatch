@@ -1,9 +1,9 @@
 import React from "react";
 import { Flex, Box, Text } from "ui/base";
 
-export const ActionCard = ({ title, subtitle, actions, containerProps }) => {
+export const ActionCard = ({ title, subtitle, actions, ...containerProps }) => {
   return (
-    <Flex {...{ containerProps }}>
+    <Flex {...containerProps}>
       <Box>
         <Text color="textPrimary" fontSize={2} fontWeight="bold">
           {title}

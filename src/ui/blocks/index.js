@@ -1,4 +1,4 @@
 import { UserInfo } from "./UserInfo";
 import { ActionCard } from "./ActionCard";
-
-export { UserInfo, ActionCard };
+import * as Dropdowns from "./Dropdowns";
+export { UserInfo, ActionCard, Dropdowns };

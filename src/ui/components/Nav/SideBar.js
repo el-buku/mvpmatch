@@ -6,7 +6,7 @@ import { ReactComponent as Icon2 } from "assets/icons/sidebar-icons/sidebar-2.sv
 import { ReactComponent as Icon3 } from "assets/icons/sidebar-icons/sidebar-3.svg";
 import { ReactComponent as Icon4 } from "assets/icons/sidebar-icons/sidebar-4.svg";
 import { ReactComponent as Icon5 } from "assets/icons/sidebar-icons/sidebar-5.svg";
-import { IconButton, Spacer } from "ui/base";
+import { Button, Spacer } from "ui/base";
 
 const sidebarAnimation = keyframes({
   from: {
@@ -37,21 +37,21 @@ const SideBar = () => {
       <Flex position="sticky" top={0} flexDirection="column">
         <Spacer height={4} />
 
-        <IconButton
+        <Button.Icon
           justifyContent={"center"}
           mr="auto"
           my={3}
           ml={5}
           icon={<Icon2 />}
         />
-        <IconButton
+        <Button.Icon
           justifyContent={"center"}
           mr="auto"
           my={3}
           ml={5}
           icon={<Icon5 />}
         />
-        <IconButton
+        <Button.Icon
           justifyContent={"center"}
           mr="auto"
           my={3}
@@ -59,14 +59,14 @@ const SideBar = () => {
           icon={<Icon4 />}
         />
 
-        <IconButton
+        <Button.Icon
           justifyContent={"center"}
           mr="auto"
           my={3}
           ml={5}
           icon={<Reports />}
         />
-        <IconButton
+        <Button.Icon
           justifyContent={"center"}
           mr="auto"
           my={3}

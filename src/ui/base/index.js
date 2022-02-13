@@ -3,7 +3,9 @@ import theme, { GlobalStyle } from "./theme";
 import { Text } from "./Text";
 import { Flex } from "./Flex";
 import { Spacer } from "./Spacer";
-import { IconButton } from "./IconButton";
+import * as Button from "./Button";
+
 import { Spinner } from "./Spinner";
-export { Box, GlobalStyle, Text, Flex, Spacer, IconButton, Spinner };
+import { Cell } from "./Cell";
+export { Box, Cell, Button, GlobalStyle, Text, Flex, Spacer, Spinner };
 export default theme;

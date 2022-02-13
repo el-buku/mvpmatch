@@ -1,11 +1,11 @@
 import React from "react";
 import { Box } from "ui/base";
-import { ReportsCard } from "ui/components/Cards";
+import { Cards } from "ui/components";
 const Reports = () => {
   return (
     <>
       <Box>
-        <ReportsCard />
+        <Cards.Reports />
       </Box>
     </>
   );
