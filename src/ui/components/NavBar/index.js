@@ -24,7 +24,13 @@ const NavBar = ({ toggleSideBar }) => {
       bg="white"
       zIndex={4}
     >
-      <IconButton mx={5} ml={[3, 5]} height={3} icon={<AppLogo />} />
+      <IconButton
+        disabledHover
+        mx={5}
+        ml={[3, 5]}
+        height={3}
+        icon={<AppLogo />}
+      />
 
       <IconButton onClick={toggleSideBar} icon={<SideBarToggle />} />
 
