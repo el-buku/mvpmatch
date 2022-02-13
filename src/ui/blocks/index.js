@@ -1,3 +1,4 @@
 import { UserInfo } from "./UserInfo";
+import { ActionCard } from "./ActionCard";
 
-export { UserInfo };
+export { UserInfo, ActionCard };

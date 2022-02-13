@@ -1,12 +1,7 @@
 import React from "react";
 import { Spinner, Text, Flex } from "ui/base";
-import { useData } from "context";
 
-export const UserInfo = () => {
-  const {
-    users: { data, loading, error },
-  } = useData();
-  const user = data?.[0] || null;
+export const UserInfo = ({ user, loading, error }) => {
   return (
     <Flex
       ml={"auto"}

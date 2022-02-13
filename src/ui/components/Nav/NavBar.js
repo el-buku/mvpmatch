@@ -3,8 +3,13 @@ import { ReactComponent as AppLogo } from "assets/icons/b-logo.svg";
 import { ReactComponent as SideBarToggle } from "assets/icons/sidebar-toggle.svg";
 import { UserInfo } from "ui/blocks";
 import { IconButton, Flex } from "ui/base";
+import { useData } from "context";
 
 const NavBar = ({ toggleSideBar }) => {
+  const {
+    users: { data, loading, error },
+  } = useData();
+  const user = data?.[0] || null;
   return (
     <Flex
       height={4}
@@ -27,7 +32,7 @@ const NavBar = ({ toggleSideBar }) => {
 
       <IconButton onClick={toggleSideBar} icon={<SideBarToggle />} />
 
-      <UserInfo />
+      <UserInfo {...{ user, loading, error }} />
     </Flex>
   );
 };

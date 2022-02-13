@@ -29,7 +29,7 @@ const SideBar = () => {
       position={"absolute"}
       zIndices={3}
       top={0}
-      borderRightWidth={{ _: "2px", small: 0 }}
+      borderRightWidth={"2px"}
       borderRightStyle={"solid"}
       borderRightColor="lightGray"
       alignItems="flex-start"

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import styled, { useTheme, css, keyframes } from "styled-components";
-import { Box } from "ui/base";
-import { NavBar, SideBar } from ".";
+import { Box, Flex } from "ui/base";
+import { NavBar, SideBar, Footer } from ".";
 
 const contentMargin = {
   closed: 6,
   open: 7,
 };
-
+const navBarTopPadding = 4;
 const contentAnimation = (props) =>
   keyframes({
     from: {
@@ -18,7 +18,8 @@ const contentAnimation = (props) =>
     },
   });
 
-const ContentContainer = styled(Box)`
+const ContentContainer = styled(Flex)`
+  min-height: calc(100vh - ${(props) => props.theme.sizes[navBarTopPadding]}px);
   animation: ${(props) =>
     props.sideBarOpen
       ? css`
@@ -42,13 +43,15 @@ const MenuWrapper = ({ children }) => {
       <ContentContainer
         position="absolute"
         sideBarOpen={sideBarOpen}
+        flexDirection="column"
         ml={{
-          _: 4,
+          _: sideBarOpen ? contentMargin.open : 4,
           small: sideBarOpen ? contentMargin.open : contentMargin.closed,
         }}
-        pt={4}
+        pt={navBarTopPadding}
       >
         {children}
+        <Footer />
       </ContentContainer>
     </Box>
   );
