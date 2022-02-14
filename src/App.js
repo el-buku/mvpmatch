@@ -1,16 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { ThemeProvider } from "styled-components";
 import theme, { GlobalStyle, Box } from "ui/base";
 import { Navigation } from "ui/components";
-import { DataProvider } from "context";
+import { DataProvider, ViewProvider } from "context";
 import { Reports } from "./routes";
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <ViewProvider>
       <DataProvider>
-        <GlobalStyle />
         <Router>
+          <GlobalStyle />
           <Navigation>
             <Routes>
               <Route path="/" element={<Reports />} />
@@ -19,7 +18,7 @@ function App() {
           </Navigation>
         </Router>
       </DataProvider>
-    </ThemeProvider>
+    </ViewProvider>
   );
 }
 

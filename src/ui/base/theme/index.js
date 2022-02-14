@@ -35,6 +35,34 @@ theme.breakpoints.small = theme.breakpoints[0];
 theme.breakpoints.medium = theme.breakpoints[1];
 theme.breakpoints.large = theme.breakpoints[2];
 
+theme.contentMargin = {
+  _closed: 4,
+  closed: 6,
+  open: 7,
+};
+theme.navBarTopPadding = 4;
+
+theme.getComputedSizes = ({ sidebarOpen }) => ({
+  content: {
+    ml: {
+      _: sidebarOpen ? theme.contentMargin.open : theme.contentMargin._closed,
+      small: sidebarOpen
+        ? theme.contentMargin.open
+        : theme.contentMargin.closed,
+    },
+    width: {
+      _: `calc(100vw - ${(
+        (sidebarOpen && theme.space[theme.contentMargin.open]) ||
+        theme.space[theme.contentMargin._closed]
+      ).toString()}px);`,
+      small: `calc(100vw - ${(
+        (sidebarOpen && theme.space[theme.contentMargin.open]) ||
+        theme.space[theme.contentMargin.closed]
+      ).toString()}px);`,
+    },
+  },
+});
+
 theme.breakpointsToPx = (breakpoint) =>
   parseInt(theme.breakpoints[breakpoint].slice(0, -2)) * 16;
 
