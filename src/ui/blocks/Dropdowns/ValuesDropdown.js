@@ -1,34 +1,36 @@
 import React from "react";
-import { Cell, Box } from "ui/base";
+import { Cell, Box, Flex } from "ui/base";
 import { ReactComponent as ArrowDown } from "assets/icons/arrow-down.svg";
 import { useTheme } from "styled-components";
 
-const Dropdown = ({ placeholder, options, selected, onSelect, selectAll }) => {
+const Dropdown = ({ itemKey, options, selected, onSelect, selectAll }) => {
   const theme = useTheme();
-  console.log({ placeholder, options, selected, onSelect });
+  console.log({ itemKey, options, selected, onSelect });
   const selectedItem = options?.[selected];
   return (
-    <>
-      <Cell
-        color="white"
-        bg="secondary"
-        endAdornment={<ArrowDown />}
-        parent
-        position="absolute"
-        cells={options.map((option, index) => (
-          <Cell
-            color="white"
-            bg="secondary"
-            endAdornment={null}
-            id={`${option.name}-${index}`}
+    <Box>
+      <Cell.Container color="white" bg="secondary">
+        <Cell.Child endAdornment={<ArrowDown />} primary firstRow>
+          {selectedItem?.label || `Select ${itemKey}...`}
+        </Cell.Child>
+        {options.map((option, index) => (
+          <Cell.Child
+            key={`${option.name}-${index}`}
+            width="full"
+            onClick={() => console.log(index)}
           >
             {option.name}
-          </Cell>
+          </Cell.Child>
         ))}
-      >
-        {selectedItem?.label || placeholder}
-      </Cell>
-    </>
+        <Cell.Child
+          width="full"
+          onClick={() => console.log(`All ${itemKey}s`)}
+          lastRow
+        >
+          {`All ${itemKey}s`}
+        </Cell.Child>
+      </Cell.Container>
+    </Box>
   );
 };
 

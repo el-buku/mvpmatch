@@ -2,7 +2,7 @@ import { GlobalStyle } from "./GlobalStyle";
 
 const theme = {
   breakpoints: ["40em", "52em", "64em"],
-  space: [0, 8, 10, 12, 20, 28, 36, 100],
+  space: [0, 8, 10, 12, 20, 28, 36, 100, 122, 137],
   sizes: [0, 24, 32, 40, 80, 100, 220],
   fontSizes: [14, 16, 24],
   zIndices: [0, 2, 4, 6, 8],

@@ -13,7 +13,7 @@ export const ActionCard = ({ title, subtitle, actions, ...containerProps }) => {
           {subtitle}
         </Text>
       </Box>
-      <Flex justifyContent={"space-between"}>{actions}</Flex>
+      <Flex width="full">{actions}</Flex>
     </Flex>
   );
 };
