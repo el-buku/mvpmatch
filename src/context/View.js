@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useMemo, useState } from "react";
-import { ThemeProvider, useTheme } from "styled-components";
+import { ThemeProvider, useTheme } from "styled-components/macro";
 import theme from "ui/base";
 
 const ViewContext = createContext();

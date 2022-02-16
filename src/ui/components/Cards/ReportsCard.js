@@ -1,10 +1,12 @@
-import React from "react";
-import { useTheme } from "styled-components";
+import React, { useState } from "react";
+import { useTheme } from "styled-components/macro";
 import { ActionCard } from "ui/blocks";
 import { InputGroup } from "ui/components";
 
 const ReportsCard = () => {
   const theme = useTheme();
+  const [selected, onChange] = useState(false);
+  console.log(selected);
   return (
     <ActionCard
       title="Reports"
@@ -34,12 +36,23 @@ const ReportsCard = () => {
                 { id: 3, name: "ccac" },
               ],
             },
-            // {
-            //   type: "date",
-            //   placeholder: "From date...",
-            //   value: null,
-            //   onDateChanged: console.log,
-            // },
+            {
+              type: "date",
+              placeholder: "To date...",
+              // selected,
+              // onChange: (date) => onChange(date),
+            },
+            {
+              type: "date",
+              placeholder: "From date...",
+              selected: null,
+              onChange: console.log,
+            },
+            {
+              type: "submit",
+              text: "Generate Report",
+              onClick: () => onChange(true),
+            },
           ]}
         />
       }

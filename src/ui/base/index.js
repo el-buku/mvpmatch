@@ -4,8 +4,8 @@ import { Text } from "./Text";
 import { Flex } from "./Flex";
 import { Spacer } from "./Spacer";
 import * as Button from "./Button";
-
 import { Spinner } from "./Spinner";
-import { Cell } from "./Cell";
+
+const Cell = Button.Cell;
 export { Box, Cell, Button, GlobalStyle, Text, Flex, Spacer, Spinner };
 export default theme;

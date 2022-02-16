@@ -1,8 +1,10 @@
 import React from "react";
 import { Flex, Box, Text } from "ui/base";
+import { useTheme } from "styled-components";
 
 export const ActionCard = ({ title, subtitle, actions, ...containerProps }) => {
   console.log(containerProps.flexDirection);
+  const theme = useTheme();
   return (
     <Flex {...containerProps}>
       <Box>
@@ -13,7 +15,9 @@ export const ActionCard = ({ title, subtitle, actions, ...containerProps }) => {
           {subtitle}
         </Text>
       </Box>
-      <Flex width="full">{actions}</Flex>
+      <Flex width="full" flexWrap="wrap" pt={[theme.space[3], 0]}>
+        {actions}
+      </Flex>
     </Flex>
   );
 };

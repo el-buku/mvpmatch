@@ -1,13 +1,39 @@
-import React from "react";
-import { Box } from "ui/base";
+import React, { forwardRef } from "react";
+import { Box, Cell } from "ui/base";
+import { ReactComponent as CalendarIcon } from "assets/icons/calendar.svg";
+import { Calendar } from "react-calendar";
+import "react-calendar/dist/Calendar.css";
+import Modal from "simple-react-modal";
+import DatePicker from "react-datepicker";
+import styled from "styled-components/macro";
 
-const Dropdown = ({ placeholder, options, selected, onSelect }) => {
-  const selectedItem = options[selected];
+const DateDropdown = ({ placeholder, err, selected, onChange }) => {
+  const DropdownButton = forwardRef(({ onClick }, ref) => {
+    return (
+      <Cell.Child
+        endAdornment={<CalendarIcon />}
+        onClick={onClick}
+        button
+        ref={ref}
+        firstRow
+      >
+        {selected ? selected.toLocaleDateString() : placeholder}
+      </Cell.Child>
+    );
+  });
   return (
-    <Box color="white" bg="secondary">
-      {selectedItem ? selectedItem.label : `Select ${placeholder}...`}
-    </Box>
+    <Cell.Container err={err}>
+      <DatePicker
+        selected={selected}
+        onChange={onChange}
+        customInput={<DropdownButton placeholder={placeholder} />}
+      />
+    </Cell.Container>
   );
 };
 
-export default Dropdown;
+export default styled(DateDropdown)`
+  & > .react-datepicker-wrapper {
+    display: inherit;
+  }
+`;

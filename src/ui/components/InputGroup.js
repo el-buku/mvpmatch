@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Box, Flex } from "ui/base";
+import { Box, Flex, Button } from "ui/base";
 import { Dropdowns } from "ui/blocks";
 
 const InputGroup = ({ elements }) => {
@@ -12,7 +12,10 @@ const InputGroup = ({ elements }) => {
         return (
           <Box px={1} key={`${index}`}>
             {(type === "values" && <Dropdowns.Values {...element} />) ||
-              (type === "date" && <Dropdowns.Date {...element} />)}
+              (type === "date" && <Dropdowns.Date {...element} />) ||
+              (type === "submit" && (
+                <Button.Submit {...element}>{element.text}</Button.Submit>
+              ))}
           </Box>
         );
       })}

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { space, layout, color, border, position, borders } from "styled-system";
 
 const Box = styled.div`

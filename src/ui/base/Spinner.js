@@ -1,8 +1,8 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
-const Spinner = () => (
-  <StyledSpinner viewBox="0 0 50 50">
+const Spinner = ({ ...props }) => (
+  <StyledSpinner viewBox="0 0 50 50" {...props}>
     <circle
       className="path"
       cx="25"
@@ -16,8 +16,8 @@ const Spinner = () => (
 
 const StyledSpinner = styled.svg`
   animation: rotate 2s linear infinite;
-  width: ${(props) => props.theme.sizes[3]}px;
-  height: ${(props) => props.theme.sizes[3]}px;
+  width: ${(props) => props.width || props.theme.sizes[3]}px;
+  height: ${(props) => props.height || props.theme.sizes[3]}px;
 
   & .path {
     stroke: ${(props) => props.theme.colors.lightGray};

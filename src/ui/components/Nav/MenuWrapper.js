@@ -1,5 +1,5 @@
 import React, { Children, cloneElement, isValidElement, useState } from "react";
-import styled, { useTheme, css, keyframes } from "styled-components";
+import styled, { useTheme, css, keyframes } from "styled-components/macro";
 import { Box, Flex } from "ui/base";
 import { NavBar, SideBar, Footer } from ".";
 import { useView } from "context";
@@ -26,6 +26,7 @@ const MenuWrapper = ({ children }) => {
         width={theme.computedSizes.content.width}
         ml={theme.computedSizes.content.ml}
         pt={theme.navBarTopPadding}
+        mr={[4, 7]}
       >
         {children}
         <Footer />

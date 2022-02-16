@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes } from "styled-components/macro";
 import { Flex } from "ui/base";
 import { ReactComponent as Reports } from "assets/icons/sidebar-icons/sidebar-1.svg";
 import { ReactComponent as Icon2 } from "assets/icons/sidebar-icons/sidebar-2.svg";

@@ -6,7 +6,7 @@ import {
   color,
   typography,
 } from "styled-system";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { Box } from "./Box";
 
 const Text = styled(Box)`
