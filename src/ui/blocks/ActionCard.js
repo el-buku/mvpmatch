@@ -15,9 +15,7 @@ export const ActionCard = ({ title, subtitle, actions, ...containerProps }) => {
           {subtitle}
         </Text>
       </Box>
-      <Flex width="full" flexWrap="wrap" pt={[theme.space[3], 0]}>
-        {actions}
-      </Flex>
+      {actions}
     </Flex>
   );
 };

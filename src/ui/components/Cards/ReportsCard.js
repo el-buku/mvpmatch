@@ -12,9 +12,12 @@ const ReportsCard = () => {
       title="Reports"
       subtitle="Easily generate a report of your transactions"
       flexDirection={["column", "row"]}
+      pr={[4, 7]}
       width={theme.computedSizes.content.width}
       actions={
         <InputGroup
+          ml={[0, "auto"]}
+          justifyContent={["center", "flex-end"]}
           elements={[
             {
               type: "values",

@@ -6,13 +6,6 @@ const Box = styled.div`
   ${color} ${position}
     ${layout} ${space} ${borders};
 `;
-Box.propTypes = {
-  ...color.propTypes,
-  ...position.propTypes,
-  ...layout.propTypes,
-  ...space.propTypes,
-  ...border.propTypes,
-};
 Box.defaultProps = {
   alignItems: "center",
 };
