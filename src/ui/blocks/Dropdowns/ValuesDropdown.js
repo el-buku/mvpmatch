@@ -7,31 +7,29 @@ const Dropdown = ({
   itemKey,
   options,
   selected,
-  onSelect: onChange,
+  onSelect,
   selectAll,
   err,
+  ...containerProps
 }) => {
-  console.log({ itemKey, options, selected, onSelect: onChange });
-  const selectedItem = options?.[selected];
+  const all = `All ${itemKey}s`;
   return (
     <>
-      <Cell.Container err={err}>
+      <Cell.Container err={err} {...containerProps}>
         <Cell.Child endAdornment={<ArrowDown />} button firstRow>
-          {selectedItem?.label || `Select ${itemKey}...`}
+          {Array.isArray(selected)
+            ? all
+            : selected?.name || `Select ${itemKey}...`}
         </Cell.Child>
-        <Cell.Child
-          width="full"
-          selectable
-          onClick={() => console.log(`All ${itemKey}s`)}
-        >
-          {`All ${itemKey}s`}
+        <Cell.Child width="full" selectable onClick={selectAll}>
+          {all}
         </Cell.Child>
-        {options.map((option, index) => (
+        {options?.map((option, index) => (
           <Cell.Child
-            key={`${option.name}-${index}`}
+            key={`${option.name}-${index}-${option.appId}`}
             width="full"
             selectable
-            onClick={() => console.log(index)}
+            onClick={() => onSelect(option.appId)}
             lastRow={index === options.length - 1}
           >
             {option.name}

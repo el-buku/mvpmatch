@@ -3,8 +3,6 @@ import { Flex, Box, Text } from "ui/base";
 import { useTheme } from "styled-components";
 
 export const ActionCard = ({ title, subtitle, actions, ...containerProps }) => {
-  console.log(containerProps.flexDirection);
-  const theme = useTheme();
   return (
     <Flex {...containerProps}>
       <Box>

@@ -7,7 +7,7 @@ import Modal from "simple-react-modal";
 import DatePicker from "react-datepicker";
 import styled from "styled-components/macro";
 
-const DateDropdown = ({ placeholder, err, selected, onChange }) => {
+const DateDropdown = ({ placeholder, err, selected, onSelect }) => {
   const DropdownButton = forwardRef(({ onClick }, ref) => {
     return (
       <Cell.Child
@@ -25,7 +25,7 @@ const DateDropdown = ({ placeholder, err, selected, onChange }) => {
     <Cell.Container err={err}>
       <DatePicker
         selected={selected}
-        onChange={onChange}
+        onChange={onSelect}
         customInput={<DropdownButton placeholder={placeholder} />}
       />
     </Cell.Container>

@@ -8,7 +8,6 @@ const InputGroup = ({ elements, ...props }) => {
     <Flex flexWrap="wrap" pt={[3, 0]} {...props}>
       {elements.map((element, index) => {
         const type = element.type;
-        console.log(element);
         return (
           <Flex px={1} key={`${index}`}>
             {(type === "values" && <Dropdowns.Values {...element} />) ||

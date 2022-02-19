@@ -10,45 +10,37 @@ const Child = forwardRef(({ children, endAdornment, ...props }, ref) => {
       borderTopRightRadius={props.firstRow && 2}
       borderBottomLeftRadius={props.lastRow && 2}
       borderBottomRightRadius={props.lastRow && 2}
+      width="100%"
+      justifyContent="start"
       ref={ref}
       {...props}
     >
       <nobr>{children}</nobr>
-      {endAdornment !== undefined && <Box pl={5}>{endAdornment}</Box>}
+      {endAdornment !== undefined && (
+        <Box ml="auto" pl={5}>
+          {endAdornment}
+        </Box>
+      )}
     </Base>
   );
 });
 
 const Container = ({ children, err, ...props }) => {
-  const sizeRef = useRef();
-  const [clientWidth, setWidth] = useState();
-  useEffect(() => setWidth(sizeRef.current?.clientWidth), [sizeRef]);
+  // useEffect(() => setWidth(sizeRef.current?.clientWidth), [sizeRef]);
+  const parentProps = {
+    bg: "secondary",
+    color: "white",
+    borderRadius: 2,
+    border: err && "1px solid red",
+    flexDirection: "column",
+    as: "div",
+  };
   return (
-    <Box position="relative" mt={[10, 10]} width={clientWidth}>
-      <Parent
-        bg="secondary"
-        color="white"
-        ref={sizeRef}
-        borderRadius={2}
-        border={err && "1px solid red"}
-        flexDirection="column"
-        position="absolute"
-        as={"div"}
-        {...props}
-      >
+    <Box position="relative" mt={[10, 10]}>
+      <Parent position="absolute" {...parentProps} {...props}>
         {children}
       </Parent>
-      <Parent
-        bg="secondary"
-        color="white"
-        ref={sizeRef}
-        borderRadius={2}
-        border={err && "1px solid red"}
-        flexDirection="column"
-        style={{ visibility: "hidden" }}
-        as={"div"}
-        {...props}
-      >
+      <Parent style={{ visibility: "hidden" }} {...parentProps} {...props}>
         {children}
       </Parent>
     </Box>
