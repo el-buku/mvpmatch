@@ -15,6 +15,7 @@ const ReportsCard = () => {
     from: null,
     to: null,
   });
+  console.log(reports.data, projects.selected, gateways.selected);
   const mapItem = ({ appId, name }) => ({ appId, name });
   const getDropdownOptions = (store) => ({
     selected: store.selected,
@@ -64,11 +65,11 @@ const ReportsCard = () => {
               type: "submit",
               text: "Generate Report",
               onClick: () => {
-                reports.setParams({
-                  to: dates.to,
-                  from: dates.from,
-                  projects: projects.selected,
-                  gateways: gateways.selected,
+                reports.load({
+                  to: dates.to?.toISOString().split("T")[0],
+                  from: dates.from?.toISOString().split("T")[0],
+                  projectId: projects.selected?.projectId || null,
+                  gatewayId: gateways.selected?.gatewayId || null,
                 });
               },
             },

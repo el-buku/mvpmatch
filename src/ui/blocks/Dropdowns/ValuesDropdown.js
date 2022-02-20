@@ -17,7 +17,7 @@ const Dropdown = ({
     <>
       <Cell.Container err={err} {...containerProps}>
         <Cell.Child endAdornment={<ArrowDown />} button firstRow>
-          {Array.isArray(selected)
+          {Array.isArray(selected) && selected.length === 0
             ? all
             : selected?.name || `Select ${itemKey}...`}
         </Cell.Child>

@@ -38,7 +38,7 @@ class APIService {
   fetchReports = async (params) => {
     console.log(params);
     if (params !== null) {
-      const url = `${this.baseUrl}/reports`;
+      const url = `${this.baseUrl}/report`;
       const config = {
         method: "POST",
         headers: {

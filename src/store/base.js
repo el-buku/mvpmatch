@@ -11,13 +11,15 @@ const storeFactory = ({
     data: null,
     loading: false,
     error: null,
-    selected: [],
+    selected: null,
     apiMethod,
     resourceName,
     idKey,
     loadOnRender,
     load: async (params) => {
       baseStore.loading = true;
+      baseStore.data = null;
+
       const r = await baseStore.apiMethod(params).catch((e) => {
         console.error(`Failed to load ${baseStore.resourceName}`, e);
         baseStore.error = true;
@@ -33,7 +35,7 @@ const storeFactory = ({
       );
     },
     selectAll: () => {
-      baseStore.selected = baseStore.data;
+      baseStore.selected = [];
     },
     ...extraProperties,
   });
