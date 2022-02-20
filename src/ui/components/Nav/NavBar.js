@@ -3,12 +3,11 @@ import { ReactComponent as AppLogo } from "assets/icons/b-logo.svg";
 import { ReactComponent as SideBarToggle } from "assets/icons/sidebar-toggle.svg";
 import { UserInfo } from "ui/blocks";
 import { Button, Flex } from "ui/base";
-import { useData } from "context";
+import { useSnapshot } from "valtio";
+import { userStore } from "store";
 
 const NavBar = ({ toggleSideBar }) => {
-  const {
-    users: { data, loading, error },
-  } = useData();
+  const { data, loading, error } = useSnapshot(userStore);
   const user = data?.[0] || null;
   return (
     <Flex

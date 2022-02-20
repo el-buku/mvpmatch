@@ -1,6 +1,6 @@
 import { API_BASE_URL } from "utils/constants";
 
-export default class RESTClient {
+class APIService {
   constructor() {
     this.baseUrl = API_BASE_URL;
   }
@@ -8,7 +8,6 @@ export default class RESTClient {
     console.error(e);
   };
   handleResponse = async (response) => {
-    console.log(response);
     if (!response.ok) {
       this.onFailed(response.statusText);
       throw Error(response.statusText);
@@ -51,3 +50,6 @@ export default class RESTClient {
     }
   };
 }
+
+const apiService = new APIService();
+export default apiService;

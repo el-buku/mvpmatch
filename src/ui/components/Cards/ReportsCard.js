@@ -3,21 +3,24 @@ import { useTheme } from "styled-components/macro";
 import { ActionCard } from "ui/blocks";
 import { InputGroup } from "ui/components";
 import { useData } from "context";
+import { useSnapshot } from "valtio";
+import { projectStore, gatewayStore, reportStore } from "store";
 
 const ReportsCard = () => {
   const theme = useTheme();
-  const { projects, gateways, reports } = useData();
+  const projects = useSnapshot(projectStore);
+  const gateways = useSnapshot(gatewayStore);
+  const reports = useSnapshot(reportStore);
   const [dates, setDates] = useState({
     from: null,
     to: null,
   });
   const mapItem = ({ appId, name }) => ({ appId, name });
-  const findItem = (appId) => (item) => item.appId === appId;
-  const getDropdownOptions = (item) => ({
-    selected: item.selected,
-    options: item.data?.map(mapItem) || [],
-    onSelect: (appId) => item.select(item.data.find(findItem(appId))),
-    selectAll: () => item.selectAll(),
+  const getDropdownOptions = (store) => ({
+    selected: store.selected,
+    options: store.data?.map(mapItem) || [],
+    onSelect: (appId) => store.select([appId]),
+    selectAll: () => store.selectAll(),
   });
   return (
     <ActionCard
