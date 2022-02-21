@@ -22,7 +22,7 @@ const gatewayStore = storeFactory({
 const reportStore = storeFactory({
   apiMethod: apiService.fetchReports,
   resourceName: "reports",
-  idKey: "reportId",
+  idKey: "paymentId",
   loadOnRender: false,
 });
 

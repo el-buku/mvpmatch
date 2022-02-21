@@ -15,7 +15,6 @@ const ReportsCard = () => {
     from: null,
     to: null,
   });
-  console.log(reports.data, projects.selected, gateways.selected);
   const mapItem = ({ appId, name }) => ({ appId, name });
   const getDropdownOptions = (store) => ({
     selected: store.selected,

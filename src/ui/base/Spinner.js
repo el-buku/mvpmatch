@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
+import { layout, space } from "styled-system";
 
 const Spinner = ({ ...props }) => (
   <StyledSpinner viewBox="0 0 50 50" {...props}>
@@ -15,12 +16,15 @@ const Spinner = ({ ...props }) => (
 );
 
 const StyledSpinner = styled.svg`
+  ${layout}
+  ${space}
   animation: rotate 2s linear infinite;
   width: ${(props) => props.width || props.theme.sizes[3]}px;
   height: ${(props) => props.height || props.theme.sizes[3]}px;
 
   & .path {
-    stroke: ${(props) => props.theme.colors.lightGray};
+    stroke: ${(props) =>
+      props.theme.colors[props.spinnerColor] || props.theme.colors.lightGray};
     stroke-linecap: round;
     animation: dash 1.5s ease-in-out infinite;
   }

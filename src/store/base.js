@@ -20,10 +20,17 @@ const storeFactory = ({
       baseStore.loading = true;
       baseStore.data = null;
 
-      const r = await baseStore.apiMethod(params).catch((e) => {
-        console.error(`Failed to load ${baseStore.resourceName}`, e);
-        baseStore.error = true;
-      });
+      //this is just for the UI spinner to show up a bit
+      const r = await new Promise((resolve) =>
+        setTimeout(async () => {
+          resolve(
+            await baseStore.apiMethod(params).catch((e) => {
+              console.error(`Failed to load ${baseStore.resourceName}`, e);
+              baseStore.error = true;
+            })
+          );
+        }, 800)
+      );
       baseStore.data =
         r?.data?.map((item) => ({ ...item, appId: item[baseStore.idKey] })) ||
         null;
@@ -36,6 +43,12 @@ const storeFactory = ({
     },
     selectAll: () => {
       baseStore.selected = [];
+    },
+    findByName: (name) => {
+      return baseStore.data?.find((item) => item.name === name);
+    },
+    findById: (id) => {
+      return baseStore.data?.find((item) => item[baseStore.idKey] === id);
     },
     ...extraProperties,
   });
