@@ -25,8 +25,8 @@ const Base = styled.button`
 `;
 
 Base.defaultProps = {
-  py: 1,
   px: 3,
+  py: 1,
   as: "a",
 
   alignItems: "center",
@@ -36,6 +36,9 @@ const Parent = styled(Flex)`
   ${(props) => props.err && ``}
   &:hover > * {
     display: flex !important;
+  }
+  &:hover {
+    z-index: 100;
   }
 `;
 export { Base, Parent, Input };

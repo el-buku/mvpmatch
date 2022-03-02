@@ -36,13 +36,11 @@ const storeFactory = ({
         null;
       baseStore.loading = false;
     },
-    select: (selectedIds) => {
-      baseStore.selected = baseStore.data?.find((item) =>
-        selectedIds?.includes(item[baseStore.idKey])
-      );
+    select: (id) => {
+      baseStore.selected = baseStore.findById(id);
     },
     selectAll: () => {
-      baseStore.selected = [];
+      baseStore.selected = null;
     },
     findByName: (name) => {
       return baseStore.data?.find((item) => item.name === name);

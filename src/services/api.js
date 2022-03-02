@@ -12,7 +12,8 @@ class APIService {
       this.onFailed(response.statusText);
       throw Error(response.statusText);
     }
-    return await response.json();
+    const data = await response.json();
+    return data;
   };
   fetchUsers = async () => {
     const url = `${this.baseUrl}/users`;
@@ -36,7 +37,6 @@ class APIService {
     return await fetch(url, config).then(this.handleResponse);
   };
   fetchReports = async (params) => {
-    console.log(params);
     if (params !== null) {
       const url = `${this.baseUrl}/report`;
       const config = {

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useTheme } from "styled-components/macro";
 import { ActionCard } from "ui/blocks";
 import { InputGroup } from "ui/components";
-import { useData } from "context";
 import { useSnapshot } from "valtio";
 import { projectStore, gatewayStore, reportStore } from "store";
 
@@ -19,7 +18,7 @@ const ReportsCard = () => {
   const getDropdownOptions = (store) => ({
     selected: store.selected,
     options: store.data?.map(mapItem) || [],
-    onSelect: (appId) => store.select([appId]),
+    onSelect: (appId) => store.select(appId),
     selectAll: () => store.selectAll(),
   });
   return (
@@ -43,7 +42,6 @@ const ReportsCard = () => {
             {
               type: "values",
               itemKey: "gateway",
-              selected: 1,
               width: 185.25,
               ...getDropdownOptions(gateways),
             },
@@ -52,13 +50,14 @@ const ReportsCard = () => {
               placeholder: "To date...",
               selected: dates.to,
               onSelect: (date) => setDates({ ...dates, to: date }),
+              onReset: () => setDates({ ...dates, to: null }),
             },
             {
               type: "date",
               placeholder: "From date...",
-              selected: null,
               selected: dates.from,
               onSelect: (date) => setDates({ ...dates, from: date }),
+              onReset: () => setDates({ ...dates, from: null }),
             },
             {
               type: "submit",

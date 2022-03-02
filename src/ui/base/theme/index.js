@@ -10,7 +10,7 @@ const theme = {
     _: 400,
     bold: 700,
   },
-  radii: [0, 2, 5],
+  radii: [0, 2, 5, 10],
   align: {
     center: "center",
   },
@@ -25,6 +25,7 @@ const theme = {
     textPrimary: "#011F4B",
     accent: "#F6CA65",
   },
+  chartColors: ["#A259FF", "#F24E1E", "#FFC107", "#6497B1", "#005B96"],
 };
 
 theme.sizes.auto = "auto";

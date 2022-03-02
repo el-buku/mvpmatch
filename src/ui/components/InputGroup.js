@@ -9,7 +9,7 @@ const InputGroup = ({ elements, ...props }) => {
       {elements.map((element, index) => {
         const type = element.type;
         return (
-          <Flex px={1} key={`${index}`}>
+          <Flex pl={1} key={`${index}`}>
             {(type === "values" && <Dropdowns.Values {...element} />) ||
               (type === "date" && <Dropdowns.Date {...element} />) ||
               (type === "submit" && (
